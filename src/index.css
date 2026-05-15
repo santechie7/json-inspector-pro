@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --fg: #0f172a;
+    --border: #e2e8f0;
+    --sidebar: #f8fafc;
+    --accent: #3b82f6;
+    --header: #f1f5f9;
+    --footer: #cbd5e1;
+    --card: #ffffff;
+  }
+
+  .dark {
+    --bg: #0d1117;
+    --fg: #c9d1d9;
+    --border: #30363d;
+    --sidebar: #0d1117;
+    --accent: #1f6feb;
+    --header: #161b22;
+    --footer: #010409;
+    --card: #161b22;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .theme-header {
+    background-color: var(--header);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .theme-footer {
+    background-color: var(--footer);
+    border-top: 1px solid var(--border);
+  }
+
+  .theme-sidebar {
+    background-color: var(--sidebar);
+    border-right: 1px solid var(--border);
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl;
+  }
+  
+  .editor-container {
+    @apply h-full w-full rounded-lg overflow-hidden border border-[var(--border)];
+  }
+
+  /* Custom scrollbar matching GitHub dark theme Style */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#484f58] rounded-full hover:bg-[#8b949e];
+  }
+}
